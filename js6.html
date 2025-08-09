@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Example</title>
+  <style>
+    h1{
+        text-align: center;
+    }
+    p{
+        color: red;
+    }
+  </style>
+</head>
+<body>
+    <h1><u>DAY 6</u></h1>
+    <h2>DOM Element</h2>
+    <p>1. getElementById:- Finds an HTML element using its id.<br>2.innerText:- Gets or changes the text inside an element.<br>3.addEventListener:- Makes an element respond when an event (like click, hover, keypress) happens. </p>
+     <p><u>Example:-</u></p>
+<h3 id="title">Hello !</h3>
+<button id="btn">Click Me</button>
+
+<script>
+  // id upayogichu element pidikkuka
+  let button = document.getElementById("btn");
+  
+  // button click event set cheyyuka
+  button.addEventListener("click", function() {
+    // h1 text change cheyyuka
+    document.getElementById("title").innerText = "Hello Would!";
+  });
+</script>
+
+<h4 id="myText" style="display:none;">The Earth is round and rotates, giving us day and night.<br>
+About 71% of the planet is covered in water, the rest is land.<br>
+We are all connected through nature and technology.</h4>
+<button id="toggleBtn">Show Text</button>
+
+<script>
+  let btn = document.getElementById("toggleBtn");
+  let text = document.getElementById("myText");
+
+  btn.addEventListener("click", function() {
+    if (text.style.display === "none") {
+      text.style.display = "block";
+      btn.innerText = "Hide Text";
+    } else {
+      text.style.display = "none";
+      btn.innerText = "Show Text";
+    }
+  });
+</script>
+
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button id="showBtn">Show Message</button>
+<p id="output"></p>
+
+<script>
+  document.getElementById("showBtn").addEventListener("click", function() {
+    let name = document.getElementById("nameInput").value;
+    document.getElementById("output").innerText = "Hello " + name + "!";
+  });
+</script>
+
+</body>
+</html>

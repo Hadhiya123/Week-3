@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: azure;
+        }
+        h2{
+            background-color: black;
+            color: aquamarine;
+        }
+        h3{
+            color: red;
+        }
+        h5{
+            color: rgb(11, 151, 11);
+        }
+        p{
+            color: rgb(12, 12, 12);
+        }
+        h4{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>DAY 2</u></h1>
+    <h2>JS Operators & Type Coercion</h2>
+      <h3><u>Arithmetic Operators</u></h3>
+  <p id="output1"></p>
+
+  <script>
+      let output = "";
+
+      let sum = 5 + 3;
+      let diff = 10 - 4;
+      let mult = 2 * 6;
+      let div = 8 / 2;
+
+      output += "5 + 3 = " ;
+      output += "10 - 4 =" ;
+      output += "2 * 6 = " ;
+      output += "8 / 2 = " ;
+      document.getElementById("output1").innerHTML="5+3 = "+ sum+"<br>"+"10-4 =" +diff+"<br>"+ "2*6 = "+mult+"<br>"+"8 / 2 ="+div;
+    
+  </script>
+
+ <h3><u>Assignment Operators</u></h3>
+ <h4><strong>Assign (=)</strong></h4>
+<p id="demo8"></p>
+
+<script>
+  let x = 10;
+  document.getElementById("demo8").innerHTML = "x = " + x;
+</script>
+<p id ="demo11"></p>
+<script>
+    let p = 100;
+    document.getElementById("demo11").innerHTML = "p =" +p;
+</script>
+<h4><strong>Add and Assign  (+=)</strong></h4>
+<p id="demo9"></p>
+<script>
+    let y = 20;
+      y += 5;
+      document.getElementById("demo9").innerHTML = "y =20, y + 5 = " +y ;
+</script>
+<p id="demo10"></p>
+<script>
+    let z =30;
+       z +=15;
+       document.getElementById("demo10").innerHTML ="x =30, x + 15 = " + z;
+</script>
+<h4><strong>Substract and Assign (-=)</strong></h4>
+<p id="demo12"></p>
+<script>
+    let s =20;
+        s -=10;
+    document.getElementById("demo12").innerHTML ="1) s =20,<br> s - 10 =" + s;
+</script>
+<p id ="demo13"></p>
+<script>
+    let a =200;
+       a -=150;
+       document.getElementById("demo13").innerHTML = "2) a =200,<br> a - 150 ="+ a;
+</script>
+<h3><u>Comparison</u></h3>
+<h4><strong>equal to (==)</strong></h4>
+<p id="demoo1"></p>
+<h5>(diffrent Numbers)</h5>
+<p id="demoo2"></p>
+<h5>(same numbers)</h5>
+<p id="demoo3"></p>
+<h5>(same number but diffrent type)</h5>
+<script>
+    let R = 5;
+    document.getElementById("demoo1").innerHTML ="5 == 8 <br>" + (R==8);
+    let Q =10;
+    document.getElementById("demoo2").innerHTML ="10 == 10 <br>" +(Q==10);
+    let W = 7;
+    document.getElementById("demoo3").innerHTML = "7 == 7 <br>" +(W =="7");
+</script>
+<h4><strong>equal value and equal type(===)</strong></h4>
+<p id="demoo4"></p>
+<h5>(same value and same type)</h5>
+<p id="demoo5"></p>
+<h5>(same value but diffrent type)</h5>
+<script>
+    let F=5;
+    document.getElementById("demoo4").innerHTML = "5===5<br>"+(F===5);
+    let G = 10;
+    document.getElementById("demoo5").innerHTML ="10===10<br>"+(G==="10");
+</script>
+<h4><strong>not equal (!=)</strong></h4>
+<p id="demoo6"></p>
+<p id="demoo7"></p>
+<script>
+    let H=15;
+    document.getElementById("demoo6").innerHTML = "15 != 10  <br>"+(H != 10);
+    let I = 20;
+    document.getElementById("demoo7").innerHTML ="20 != 20  <br>"+(I != 20);
+</script>
+<h4><strong>Greaterthan (>)</strong></h4>
+<p id="demoo8"></p>
+<p id="demoo9"></p>
+<script>
+    let m = 5;
+    document.getElementById("demoo8").innerHTML ="5 > 8 <br>"+ (m > 8);
+    let g = 10;
+    document.getElementById("demoo9").innerHTML = "10 > 5 <br>" + (g > 5);
+</script>
+<h4><strong>less then (<) </strong></h4>
+<p id="demoo10"></p>
+<p id="demoo11"></p>
+<script>
+    let f = 10;
+    document.getElementById("demoo10").innerHTML = "10 < 15 <br>" +(f < 15);
+    let n = 15;
+    document.getElementById("demoo11").innerHTML = "15 < 5 <br>" + (n < 5);
+</script>
+<h3><u>Logical</u></h3>
+<h4><strong>AND (&&)</strong></h4>
+<p id="demo0"></p>
+<script>
+    let X = 10;
+    let Y = 5;
+    document.getElementById("demo0").innerHTML ="X =10, Y = 5 <br>X < 5 && Y > 1 <br>"+(X < 5 && Y > 1)+"<br>"+"X < 10 && Y > 1 <br>"+(X < 15 && Y > 1);
+</script>
+<h4><strong>OR (||)</strong></h4>
+<p id="demo01"></p>
+<script>
+    let A = 6;
+    let B = 3;
+    document.getElementById("demo01").innerHTML ="A = 6, B = 3 <br>A ==5 || B == 5 <br>"+( A==5 || B==5 )+"<br>"+"A ==6 || B == 0 <br>"+( A == 6 || B == 0);
+</script>
+<h4><strong>NOT (!)</strong></h4>
+<p id="demo02"></p>
+<script>
+    let P = 5;
+    let C = 3;
+    document.getElementById("demo02").innerHTML ="!5===3 <br>"+!(P===C)+"<br>"+"!5 > 3 <br>"+!(P > C);
+</script>
+
+    <h3><u>Type Coercion & Conversion</u></h3>
+    <p id="demo03"></p>
+    <script>
+      let result = "";
+
+      result += '"5" + 2 = ' + ("5" + 2) + "<br>";
+      result += '"5" - 2 = ' + ("5" - 2) + "<br>";
+      result += 'true + 1 = ' + (true + 1) + "<br>";
+      result += 'false + "1" = ' + (false + "1") + "<br>";
+      result += 'Number("100") + 1 = ' + (Number("100") + 1) + "<br>";
+      result += 'String(123) + "4" = ' + (String(123) + "4");
+
+      document.getElementById("demo03").innerHTML = result;
+    </script>
+
+</body>
+</html 

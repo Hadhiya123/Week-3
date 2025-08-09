@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        h2{
+            color: blue;
+        }
+        h3{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>DAY 4</u></h1>
+    <h2><u>Loops</u></h2>
+    <h3>For loops :-</h3>
+    <script>
+        for(i=1; i<=5; i++){
+            document.write(i+"<br>")
+        }
+    </script>
+
+    <h3>For...in loops :-</h3>
+    <p id="output"></p>
+
+<script>
+  let person = {
+    name: "Hadiya",
+    age: 19,
+    course: "Full Stack"
+  };
+
+  let text = "";
+
+  for (let key in person) {
+    text += key + ": " + person[key] + "<br>";
+  }
+
+  document.getElementById("output").innerHTML = text;
+</script>
+
+<h3>For...of loops :-</h3>
+<p id="output1"></p>
+
+<script>
+  let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+  let text1 = "";
+
+  for (let fruit of fruits) {
+    text1 += fruit + "<br>";
+  }
+
+  document.getElementById("output1").innerHTML = text1;
+</script>
+<h3>While loop :-</h3>
+<script>
+    var i = 1;
+    while(i<=5){
+        document.write(i+"<br>");
+        i++;
+    }
+</script>
+<h3>Do While loop:-</h3>
+<script>
+    var i = 1;
+    do{
+        document.write("Hello"+"<br>");
+        i++;
+    }while(i<=5);
+</script>
+
+
+<h2><u>Functions</u></h2>
+<h3>Function Declaration</h3>
+<script>
+    function greet(name){
+        document.write("Hello,"+name)
+    }
+    greet("Hadhiya");
+</script>
+<h3>Function Return</h3>
+<p id="demo"></p>
+<script>
+    function add(a,b){
+        return a+b;
+    }
+    let result = add(5,3);
+    document.getElementById("demo").innerText="5 + 3 ="+(result);
+</script>
+
+<h2><u>Objects</u></h2>
+<p>name:- Hadhiya,<br>
+  age:- 18,<br>
+  course:- Full Stack</p>
+<h3>keys</h3>
+<script>
+    let person1 = {
+  name: "Hadiya",
+  age: 18,
+  course: "Full Stack"
+};
+    let keys = Object.keys(person1);
+document.write(keys); 
+</script>
+<h3>Values</h3>
+<script>
+    let values = Object.values(person1);
+document.write(values);
+</script>
+<h3>Adding Methods</h3>
+<p id="method1"></p>
+<p id="method2"></p>
+<p id="method3"></p>
+<script>
+var person2 = {
+  name: "Hadiya",
+  age: 18,
+  course: "Full Stack",
+  greet: function() {
+    return "Hello, my name is " + this.name;
+  }
+};
+document.getElementById("method1").innerHTML = person2.greet();
+var person3 = {
+  name: "Hadiya",
+  age: 18,
+  course: "Full Stack",
+  greet: function() {
+    return " my age is " + this.age;
+  }
+};
+document.getElementById("method2").innerHTML= person3.greet();
+var person4 = {
+  name: "Hadiya",
+  age: 18,
+  course: "Full Stack",
+  greet: function() {
+    return " my course is " + this.course;
+  }
+};
+document.getElementById("method3").innerHTML= person4.greet();
+</script>
+
+
+
+</body>
+</html>

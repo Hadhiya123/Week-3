@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: aquamarine;
+            text-align: center;
+            background-color: rgb(17, 19, 17);
+        }
+        body{
+            background-color: rgb(247, 241, 241);
+        } 
+       p {
+    color: black;
+       }
+       h1{
+        text-align: center;
+       }
+
+    </style>
+</head>
+<body>
+    <h1><u>DAY 1</u></h1>
+    <h2>JavaScript Variables</h2>
+    <h3>let example</h3>
+    <p id="demo">5+6</p>
+    <script>
+     x=5;
+     y=6;
+     z=x+y;
+     document.getElementById("demo").innerHTML="5 + 6 = " + z;
+     </script>
+
+    <h3>var example</h3>
+     <p id="demo1">12+6</p>
+     <script>
+        var x=12;
+        var y=6;
+        var z=x+y;
+        document.getElementById("demo1").innerHTML = "12+6 =" + z;
+     </script>
+
+     <h3>const example</h3>
+     <p id="demo2">20+30</p>
+     <script>
+        const x=20;
+        const y=30;
+        const z=x+y;
+        document.getElementById("demo2").innerHTML ="20+30 =" + z;
+     </script>
+
+  <h2>Data types+type of operator</h2>
+        <h4>JS strings</h4>
+        <p id="demo3"></p>
+        <script>
+            let name1="Ammu";
+            let name2="Appu";
+            document.getElementById("demo3").innerHTML=name1+"<br>"+name2;
+        </script>
+        <h4>JS Numbers</h4>
+        <p id="demo4"></p>
+        <script>
+            let a=3;
+            let b=33;
+            let c=33.3;
+            document.getElementById("demo4").innerHTML=a+"<br>"+b+"<br>"+c;
+        </script>
+        <h4>JS Booleans</h4>
+        <p id="demo5"></p>
+        <script>
+            let p=4;
+            let q=4;
+            let r=5;
+            document.getElementById("demo5").innerHTML=(p==q)+"<br>"+(p===r);
+        </script>
+        <h4>unedifined</h4>
+        <p id="demo6"></p>
+        <script>
+            let fruit;
+            document.getElementById("demo6").innerHTML=fruit+"<br>"+typeof fruit;
+        </script>
+        <h4>JS Objects</h4>
+        <p id="demo7"></p>
+        <script>
+            const person={
+                firstName:"shaaz",
+                lastName:"maaz",
+                age:20,
+                eyecolor:"blue"
+            };
+            document.getElementById("demo7").innerHTML=person.firstName+" is "+person.age+"years old";
+        </script>
+      
+      
+      
+
+
+  
+
+</body>
+</html>

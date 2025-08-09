@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1
+        {
+            text-align: center;
+            color: white;
+        }
+        h2{
+            color: yellow;
+        }
+        h3{
+            color: red;
+        }
+        body{
+            background-color: black;
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>DAY 5</u></h1>
+    <h2><u>string Methods</u></h2>
+    <h3>Slice() :-</h3>
+    <p id="demo"></p>
+    <script>
+        let text = "Apple, Banana ,Kiwi,Orange";
+        let part = text.slice(6,13);
+        document.getElementById("demo").innerHTML = part;
+    </script>
+    <h3>To Upper Case () :-</h3>
+     <button onclick="myFunction()">Try it</button> 
+    <p id="demo1">Hello world!</p>
+    <script>
+    function myFunction (){
+    let text = document.getElementById("demo1").innerHTML;
+        document.getElementById("demo1").innerHTML = text.toUpperCase();
+    }
+    </script>
+    <h3>To Lower Case () :-</h3>
+    <button onclick="myFunction1()">Try it</button>
+    <p id="demo2">Hello world!</p>
+    <script>
+        function myFunction1 (){
+        let text = document.getElementById("demo2").innerHTML;
+        document.getElementById("demo2").innerHTML = text.toLowerCase();
+      }
+    </script>
+    <h3>Length () :- </h3>
+    <p id="demo3"></p>
+    <script>
+        let text1 ="abcdefghijklmnopqrstuvwxyz";
+        document.getElementById("demo3").innerHTML = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"<br>"+text1.length;
+    </script>
+    <h3>CharAt () :-</h3>
+    <p id="demo4"></p>
+    <script>
+        let text2 ="HELLO WORLD";
+        document.getElementById("demo4").innerHTML ="HELLO WORLD "+"<br>"+"CharAt number (4)"+"<br>"+text2.charAt(4);
+    </script>
+
+    <h3>ReplaceAll () :-</h3>
+    <p id="demo5"></p>
+    <script>
+        let text3 = "I love cats.cats are very easy to love. cats are vary popular."
+        text3= text3.replaceAll("cats","dogs");
+        document.getElementById("demo5").innerHTML = "[cats ReplaceAll dogs]"+"<br>"+text3;
+    </script>
+
+    <h2><u>Array Methods</u></h2>
+    <h3>lenth () :-</h3>
+    <p id="demo6"></p>
+    <script>
+        const fruits =["Banana","Apple","Orange","Mango"];
+        let size = fruits.length;
+        document.getElementById("demo6").innerHTML= "[BANANA,APPLE,ORANGE,MANGO]"+"<br><br>"+size;
+    </script>
+    <h3>To String () :-</h3>
+    <p id="demo7"></p>
+    <script>
+        const fruits1 =["Banana","Apple","Orange","Mango"];
+        let myList = fruits1.toString();
+        document.getElementById("demo7").innerHTML= "[BANANA,APPLE,ORANGE,MANGO]"+"<br><br>"+myList;
+    </script>
+    <h3>Array at () :-</h3>
+    <p id="demo8"></p>
+    <script>
+        const fruits2 =["Banana","Apple","Orange","Mango"];
+        let fruit = fruits2.at(2);
+        document.getElementById("demo8").innerHTML= "[BANANA,APPLE,ORANGE,MANGO]"+"<br><br>"+fruit;
+    </script>
+    <h3>Arrays push () :-</h3>
+    <p id="demo9"></p>
+<p id="demo10"></p>
+
+<script>
+const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo9").innerHTML ="[push KIWI]"+"<br><br>"+fruits3;
+fruits3.push("Kiwi");
+document.getElementById("demo10").innerHTML = fruits3;
+</script>
+
+<h3>Arrays shift () :-</h3>
+<p id="demo11"></p>
+<p id="demo12"></p>
+
+<script>
+const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo11").innerHTML = "[shift BANANA]"+"<br><br>"+fruits4;
+fruits4.shift();
+document.getElementById("demo12").innerHTML = fruits4;
+</script>
+
+</body>
+</html>

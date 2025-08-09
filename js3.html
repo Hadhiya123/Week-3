@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        h2{
+            color: red;
+        }
+        h3{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>DAY 3</u></h1>
+    <h2><u>Conditional Logic</u></h2>
+    <h3>if,else,else if</h3>
+
+    <input type="number" id="numInput1" placeholder="Enter a number">
+    <button onclick="checkNumber()">Check</button>
+
+    <p id="result1"></p>
+
+    <script>
+      function checkNumber() {
+        let num = document.getElementById("numInput1").value;
+        let output = "";
+
+        if (num > 0) {
+          output = "The number is positive.";
+        } else if (num < 0) {
+          output = "The number is negative.";
+        } else {
+          output = "The number is zero.";
+        }
+
+        document.getElementById("result1").innerHTML = output;
+      }
+    </script>
+
+
+    <h2><u>Swith statement</u></h2>
+    <h3>Day of the Week</h3>
+
+    <label for="day">Enter day number (1 to 7): </label>
+    <input type="number" id="day" placeholder="1 to 7">
+    <button onclick="checkDay()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+      function checkDay() {
+        let day = parseInt(document.getElementById("day").value);
+        let text = "";
+
+        switch (day) {
+          case 1:
+            text = "Sunday";
+            break;
+          case 2:
+            text = "Monday";
+            break;
+          case 3:
+            text = "Tuesday";
+            break;
+          case 4:
+            text = "Wednesday";
+            break;
+          case 5:
+            text = "Thursday";
+            break;
+          case 6:
+            text = "Friday";
+            break;
+          case 7:
+            text = "Saturday";
+            break;
+          default:
+            text = "Please enter a number between 1 and 7.";
+        }
+
+        document.getElementById("result").innerHTML = text;
+      }
+    </script>
+
+    <h2><u>Ternary Operator</u></h2>
+    <h3>Check Even or Odd using Ternary Operator</h3>
+
+    <input type="number" id="numInput" placeholder="Enter a number">
+    <button onclick="checkEvenOdd()">Check</button>
+
+    <p id="result2"></p>
+
+    <script>
+      function checkEvenOdd() {
+        let num = Number(document.getElementById("numInput").value);
+
+        // Ternary Operator
+        let result = (num % 2 === 0) ? "Even Number" : "Odd Number";
+
+        document.getElementById("result2").innerHTML = result;
+      }
+    </script>
+
+</body>
+</html>
