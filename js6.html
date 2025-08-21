@@ -20,19 +20,16 @@
 <button id="btn">Click Me</button>
 
 <script>
-  // id upayogichu element pidikkuka
   let button = document.getElementById("btn");
-  
-  // button click event set cheyyuka
   button.addEventListener("click", function() {
-    // h1 text change cheyyuka
     document.getElementById("title").innerText = "Hello Would!";
   });
 </script>
-
-<h4 id="myText" style="display:none;">The Earth is round and rotates, giving us day and night.<br>
+<br>
+<h4><u>Shows/Hiden text</u></h4>
+<h5 id="myText" style="display:none;">The Earth is round and rotates, giving us day and night.<br>
 About 71% of the planet is covered in water, the rest is land.<br>
-We are all connected through nature and technology.</h4>
+We are all connected through nature and technology.</h5>
 <button id="toggleBtn">Show Text</button>
 
 <script>
@@ -49,11 +46,11 @@ We are all connected through nature and technology.</h4>
     }
   });
 </script>
-
+<br>
+<h4><u>Input box + Output Message</u></h4>
 <input type="text" id="nameInput" placeholder="Enter your name">
 <button id="showBtn">Show Message</button>
 <p id="output"></p>
-
 <script>
   document.getElementById("showBtn").addEventListener("click", function() {
     let name = document.getElementById("nameInput").value;
