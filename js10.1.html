@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Local Storage
+localStorage.setItem("username", "Hadiya");
+let name = localStorage.getItem("username");
+console.log("Hello " + name); 
+// Remove single item
+localStorage.removeItem("username");
+// Clear all data
+localStorage.clear();
+
+
+
+// Session Storage
+sessionStorage.setItem("course", "Full Stack");
+let course = sessionStorage.getItem("course");
+console.log("Course: " + course);
+// Remove single item
+sessionStorage.removeItem("course");
+// Clear all data
+sessionStorage.clear();
+
+// JSON Handling(object,Arrays);
+// object
+let user = {
+  name: "Hadiya",
+  age: 19,
+  skills: ["JS", "Python", "React"]
+};
+localStorage.setItem("user", JSON.stringify(user));
+let data = localStorage.getItem("user");
+let parsed = JSON.parse(data);
+console.log(parsed.name);   
+console.log(parsed.skills); 
+    </script>
+</body>
+</html>

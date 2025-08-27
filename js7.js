@@ -1,8 +1,11 @@
+// WEEK 4
+// DAY 1 
+
 let numbers = [1, 2, 3];
 let doubled = numbers.map(x => x * 2);
 
 console.log( "map",doubled); 
-console.log(numbers);
+console.log(numbers); 
 
 let numbers1 = [2, 5, 8, 1, 10];
 let bigNumbers1 = numbers1.filter(x => x > 5);
@@ -23,7 +26,7 @@ numbers3.forEach(num => {
 });
 
 let person = { name: "Hadiya", age: 19 };
-
+      
 for (let key in person) {
   console.log("for...in",key, ":", person[key]);
 }

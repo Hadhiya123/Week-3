@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Notes (localStorage)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial; max-width: 720px; margin: 32px auto; padding: 0 16px; }
+    h2 { margin: 0 0 12px; }
+    .row { display: grid; gap: 10px; grid-template-columns: 1fr auto; align-items: start; }
+    textarea { width: 100%; min-height: 100px; padding: 10px; }
+    input[type="text"] { padding: 10px; width: 100%; }
+    button { padding: 10px 14px; cursor: pointer; }
+    .note { border: 1px solid #ddd; border-radius: 10px; padding: 10px; margin: 10px 0; }
+    .note h4 { margin: 0 0 6px; }
+    .row2 { display: flex; gap: 8px; flex-wrap: wrap; }
+    .muted { color: #666; font-size: 12px; }
+    .topbar { display:flex; gap:10px; align-items:center; margin-bottom:12px;}
+    .topbar input { flex:1; }
+  </style>
+</head>
+<body>
+  <h2> Simple Notes (localStorage)</h2>
+
+  <div class="topbar">
+    <input id="search" type="text" placeholder="Search notes..." />
+    <button id="clearAllBtn">Clear All</button>
+  </div>
+
+  <input id="title" type="text" placeholder="Note title (optional)" />
+  <div class="row">
+    <textarea id="content" placeholder="Type your note..."></textarea>
+    <div class="row2">
+      <button id="saveBtn">Save</button>
+      <button id="updateBtn" style="display:none;">Update</button>
+      <button id="cancelEditBtn" style="display:none;">Cancel</button>
+    </div>
+  </div>
+
+  <h3>Your Notes</h3>
+  <div id="list"></div>
+
+  <script>
+    const LS_KEY = "notesApp.v1";
+
+    // ---- helpers ----
+    const loadNotes = () => JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+    const saveNotes = (notes) => localStorage.setItem(LS_KEY, JSON.stringify(notes));
+
+    // ---- UI refs ----
+    const titleEl   = document.getElementById("title");
+    const contentEl = document.getElementById("content");
+    const listEl    = document.getElementById("list");
+    const saveBtn   = document.getElementById("saveBtn");
+    const updateBtn = document.getElementById("updateBtn");
+    const cancelBtn = document.getElementById("cancelEditBtn");
+    const searchEl  = document.getElementById("search");
+    const clearAll  = document.getElementById("clearAllBtn");
+
+    let editingId = null;
+
+    function renderNotes(filter = "") {
+      const notes = loadNotes();
+      const q = filter.trim().toLowerCase();
+
+      listEl.innerHTML = "";
+
+      notes
+        .filter(n =>
+          !q ||
+          (n.title && n.title.toLowerCase().includes(q)) ||
+          (n.content && n.content.toLowerCase().includes(q))
+        )
+        .sort((a,b)=> b.createdAt - a.createdAt)
+        .forEach(note => {
+          const div = document.createElement("div");
+          div.className = "note";
+
+          const h4 = document.createElement("h4");
+          h4.textContent = note.title || "(No title)";
+          div.appendChild(h4);
+
+          const p = document.createElement("p");
+          p.textContent = note.content;
+          div.appendChild(p);
+
+          const meta = document.createElement("div");
+          meta.className = "muted";
+          meta.textContent = new Date(note.createdAt).toLocaleString();
+          div.appendChild(meta);
+
+          const actions = document.createElement("div");
+          actions.className = "row2";
+
+          const editBtn = document.createElement("button");
+          editBtn.textContent = "Edit";
+          editBtn.onclick = () => startEdit(note.id);
+
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "Delete";
+          delBtn.onclick = () => deleteNote(note.id);
+
+          actions.appendChild(editBtn);
+          actions.appendChild(delBtn);
+          div.appendChild(actions);
+
+          listEl.appendChild(div);
+        });
+
+      if (!listEl.childElementCount) {
+        listEl.innerHTML = `<p class="muted">No notes yet.</p>`;
+      }
+    }
+
+    function addNote() {
+      const title = titleEl.value.trim();
+      const content = contentEl.value.trim();
+      if (!content) {
+        alert("Type something in the note ✍️");
+        return;
+      }
+
+      const notes = loadNotes();
+      notes.push({
+        id: Date.now(),
+        title,
+        content,
+        createdAt: Date.now()
+      });
+      saveNotes(notes);
+      clearForm();
+      renderNotes(searchEl.value);
+    }
+
+    function deleteNote(id) {
+      const notes = loadNotes().filter(n => n.id !== id);
+      saveNotes(notes);
+      if (editingId === id) resetEditMode();
+      renderNotes(searchEl.value);
+    }
+
+    function startEdit(id) {
+      const note = loadNotes().find(n => n.id === id);
+      if (!note) return;
+      editingId = id;
+      titleEl.value = note.title || "";
+      contentEl.value = note.content || "";
+      saveBtn.style.display = "none";
+      updateBtn.style.display = "inline-block";
+      cancelBtn.style.display = "inline-block";
+      contentEl.focus();
+    }
+
+    function updateNote() {
+      const notes = loadNotes();
+      const idx = notes.findIndex(n => n.id === editingId);
+      if (idx === -1) return resetEditMode();
+
+      const title = titleEl.value.trim();
+      const content = contentEl.value.trim();
+      if (!content) return alert("Note content required.");
+
+      notes[idx] = { ...notes[idx], title, content };
+      saveNotes(notes);
+      resetEditMode();
+      renderNotes(searchEl.value);
+    }
+
+    function resetEditMode() {
+      editingId = null;
+      saveBtn.style.display = "inline-block";
+      updateBtn.style.display = "none";
+      cancelBtn.style.display = "none";
+      clearForm();
+    }
+
+    function clearForm() {
+      titleEl.value = "";
+      contentEl.value = "";
+    }
+
+    // Clear all notes
+    clearAll.onclick = () => {
+      if (confirm("Delete all notes?")) {
+        localStorage.removeItem(LS_KEY);
+        resetEditMode();
+        renderNotes();
+      }
+    };
+
+    // Events
+    saveBtn.onclick = addNote;
+    updateBtn.onclick = updateNote;
+    cancelBtn.onclick = resetEditMode;
+    searchEl.addEventListener("input", () => renderNotes(searchEl.value));
+
+    // Initial render
+    renderNotes();
+  </script>
+</body>
+</html>
